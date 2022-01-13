@@ -47,7 +47,6 @@ const altNumbers = (numArray) => {
         }
     }
     
-    // 
     if (negatives.length > positives.length) {
         for (i = 0; i < negatives.length; i++) {
             if (i == negatives.length - 1) {
@@ -73,13 +72,7 @@ const altNumbers = (numArray) => {
         }
     }
 
-    // console.log("Positive numbers ", positives);
-    // console.log("Negatives numbers ", negatives);
-    // console.log("new Array: ", newArray);
-
     return newArray;
-
-    // return [];
 }
 
 module.exports = { altNumbers } // Do not modify this line
