@@ -32,7 +32,54 @@ var assert = require("assert")
 
 const altNumbers = (numArray) => {
     // TODO: COMPLETE THIS FUNCTION
-    return [];
+
+    var negatives = [];
+    var positives = [];
+
+    var newArray = [];
+
+    // Separate positive and negative numbers
+    for (var i = 0; i < numArray.length; i++) {
+        if (numArray[i] < 0) {
+            negatives.push(numArray[i]);
+        } else {
+            positives.push(numArray[i]);
+        }
+    }
+    
+    // 
+    if (negatives.length > positives.length) {
+        for (i = 0; i < negatives.length; i++) {
+            if (i == negatives.length - 1) {
+                newArray.push(negatives[i]);
+                break;
+            }
+            newArray.push(negatives[i], positives[i]);
+        }
+    } else if (positives.length > negatives.length) { // equal no. of elems or positive.length > negatives.length
+        for (i = 0; i < positives.length; i++) {
+            if (i == positives.length - 1) {
+                newArray.push(positives[i]);
+                break;
+            }
+            newArray.push(positives[i], negatives[i]);
+        }
+    } else {
+        for (i = 0; i < positives.length; i++) {
+            if (i == positives.length) {
+                break;
+            }
+            newArray.push(positives[i], negatives[i]);
+        }
+    }
+
+    // console.log("Positive numbers ", positives);
+    // console.log("Negatives numbers ", negatives);
+    // console.log("new Array: ", newArray);
+
+    return newArray;
+
+    // return [];
 }
 
 module.exports = { altNumbers } // Do not modify this line
