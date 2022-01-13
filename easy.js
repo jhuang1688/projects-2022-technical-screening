@@ -48,31 +48,43 @@ const altNumbers = (numArray) => {
     }
     
     if (negatives.length > positives.length) {
-        for (i = 0; i < negatives.length; i++) {
-            if (i == negatives.length - 1) {
-                newArray.push(negatives[i]);
-                break;
-            }
-            newArray.push(negatives[i], positives[i]);
-        }
+        neg(negatives, positives, newArray);
     } else if (positives.length > negatives.length) { // equal no. of elems or positive.length > negatives.length
-        for (i = 0; i < positives.length; i++) {
-            if (i == positives.length - 1) {
-                newArray.push(positives[i]);
-                break;
-            }
-            newArray.push(positives[i], negatives[i]);
-        }
+        pos(negatives, positives, newArray);
     } else {
-        for (i = 0; i < positives.length; i++) {
-            if (i == positives.length) {
-                break;
-            }
-            newArray.push(positives[i], negatives[i]);
-        }
+        equal(negatives, positives, newArray);
     }
 
     return newArray;
+}
+
+const neg = (negatives, positives, newArray) => {
+    for (i = 0; i < negatives.length; i++) {
+        if (i == negatives.length - 1) {
+            newArray.push(negatives[i]);
+            break;
+        }
+        newArray.push(negatives[i], positives[i]);
+    }
+}
+
+const pos = (negatives, positives, newArray) => {
+    for (i = 0; i < positives.length; i++) {
+        if (i == positives.length - 1) {
+            newArray.push(positives[i]);
+            break;
+        }
+        newArray.push(positives[i], negatives[i]);
+    }
+}
+
+const equal = (negatives, positives, newArray) => {
+    for (i = 0; i < positives.length; i++) {
+        if (i == positives.length) {
+            break;
+        }
+        newArray.push(positives[i], negatives[i]);
+    }
 }
 
 module.exports = { altNumbers } // Do not modify this line
