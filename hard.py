@@ -34,10 +34,29 @@ def is_unlocked(courses_list, target_course):
     """
     
     # TODO: COMPLETE THIS FUNCTION!!!
+
+    # print(CONDITIONS)
+
+    for condition in CONDITIONS:
+        if condition == target_course:
+            if CONDITIONS[target_course] == "":
+                return True
+            # elif len(CONDITIONS[target_course]) == 8:
+            #     for course in courses_list:
+            #         if course in CONDITIONS[target_course]:
+            #             return True
+            elif "and" not in CONDITIONS[target_course]:
+                for course in courses_list:
+                    if course in CONDITIONS[target_course]:
+                        return True
+            # print(CONDITIONS[target_course])
     
-    return True
+    return False
 
-
+if __name__ == "__main__":
+    print(is_unlocked([], "COMP1511"))
+    print(is_unlocked([], "COMP9301"))
+    print(is_unlocked(["MATH1081"], "COMP3153"))
 
 
 
